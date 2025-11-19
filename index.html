@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gen AI Quiz — Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">GA</div>
+        <div>
+          <h1>Gen AI Quiz</h1>
+          <p class="muted">AI-powered question generator — Demo</p>
+        </div>
+      </div>
+      <div class="controls">
+        <label class="switch">
+          <input id="useAI" type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+        <button id="startBtn" class="btn primary">Start Quiz</button>
+      </div>
+    </header>
+
+    <section class="panel" id="configPanel">
+      <div class="form-row">
+        <label>Number of Questions</label>
+        <input id="numQ" type="number" min="1" max="20" value="5">
+      </div>
+      <div class="form-row">
+        <label>Topic (optional)</label>
+        <input id="topic" type="text" placeholder="e.g. Computer Networks">
+      </div>
+      <p class="note">Toggle AI to generate questions from a server (demo uses local mock if no backend).</p>
+    </section>
+
+    <section class="panel hidden" id="quizPanel">
+      <div class="quiz-header">
+        <div id="qCounter">Question 1 / 5</div>
+        <div id="score">Score: 0</div>
+      </div>
+      <div id="questionCard" class="question-card">
+        <h2 id="questionText">Question will appear here</h2>
+        <div id="options" class="options"></div>
+      </div>
+      <div class="quiz-footer">
+        <button id="prevBtn" class="btn ghost">Prev</button>
+        <button id="nextBtn" class="btn">Next</button>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="resultPanel">
+      <div class="result-card">
+        <h2>Quiz Completed</h2>
+        <p id="resultText" class="big"></p>
+        <button id="retryBtn" class="btn">Try Again</button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <small>Made for demo • Replace AI calls with your backend for production</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
